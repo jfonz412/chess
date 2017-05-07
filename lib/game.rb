@@ -1,4 +1,6 @@
 require './lib/player.rb'
+require './lib/node.rb'
+require './lib/board_squares.rb'
 
 # GAME INTRODUCTION
 puts "Player 1 (white), please enter your name:"
