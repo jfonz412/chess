@@ -9,7 +9,7 @@ describe Board do
 
   context "after board is created" do
   	it "populates to board with pieces" do
-  	  expect(subject.squares[0][0].piece).to be_kind_of(Piece)
+  	  expect(subject.squares[1][0].piece).to be_kind_of(Piece)
   	end
   end
 end

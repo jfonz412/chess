@@ -17,7 +17,7 @@ class Board
   	    board[x] << Node.new(x,y)
       end
     end
-    board[0][0].piece = Knight.new("Knight","white",0,0)
+    board[1][0].piece = Knight.new("Knight","white",1,0)
     board #= populate_board(board)
   end
 
