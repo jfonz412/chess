@@ -6,12 +6,11 @@ class Piece
 
   include Movesets
 
-  def initialize(name, color, symbol)
+  def initialize(name, color, x, y)
   	@name = name # names will be capitalized
   	@color = color # colors will not
-  	@symbol = symbol
-    @x = nil
-    @y = nil
+    @x = x
+    @y = y
     @moves = nil
   end
 end

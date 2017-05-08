@@ -1,3 +1,5 @@
+require './lib/knight.rb'
+
 class Board
   attr_reader :squares
 
@@ -15,6 +17,11 @@ class Board
   	    board[x] << Node.new(x,y)
       end
     end
-    board
+    board[0][0].piece = Knight.new("Knight","white",0,0)
+    board #= populate_board(board)
+  end
+
+  def populate_board(board)
+    
   end
 end
