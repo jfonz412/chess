@@ -11,18 +11,35 @@ class Board
 
   public
   def find_square(x,y,color)
-     x = x.to_i - 1   
-     y = y.to_i - 1
+    x = x.to_i - 1   
+    y = y.to_i - 1
+
     return false if validate_square(x,y) == false
     return false if @squares[x][y].validate_piece(color) == false
 
     @starting_square = @squares[x][y]
-    return false if @starting_square.move_piece == false
 
     true
   end
 
+  def move_piece(x,y)
+    x = x.to_i - 1   
+    y = y.to_i - 1
+
+    return false if validate_square(x,y) == false
+    @target_square = squares[x][y]
+    return false if check_friendly_fire == false
+    #return false if @starting_square.validate_move(x,y) == false
+    #move pieces around
+  end
+
   private
+  def check_friendly_fire
+    unless @target_square.piece.nil?
+      return false if @starting_square.piece.color == @target_square.piece.color
+    end
+  end
+
   def validate_square(x,y)
     unless x.between?(0,7) && y.between?(0,7)
       puts "Invalid entry, please try again.\n"

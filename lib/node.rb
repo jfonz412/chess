@@ -9,22 +9,17 @@ class Node
   end
 
   public
-  def move_piece
-  	puts "Pick a square to move your #{@piece.name}(#{@piece.symbol} ) at #{@x+1},#{@y+1}\n"
-  	puts "Enter REDO to pick a different piece\n"
-  	input = gets.chomp
-  	puts
+  def validate_move(x,y)
 
-  	return false if input.upcase == "REDO"
   end
 
   def validate_piece(color)
     if @piece == nil
-      "There is no piece on this space..."
+      puts "There is no piece on this space...\n"
       return false 
     end
     if @piece.color != color
-      puts "This is not your piece..."
+      puts "This is not your piece...\n"
       return false
     end
     true
