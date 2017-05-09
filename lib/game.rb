@@ -15,4 +15,13 @@ player_black = Player.new(name,"black")
 
 chess_board = Board.new
 
-p chess_board.squares
+# Main game loop
+loop do
+  loop do
+    target_x = gets.chomp.to_i
+    target_y = gets.chomp.to_i
+
+    chess_board.find_square(target_x,target_y,"white")
+
+  end
+end

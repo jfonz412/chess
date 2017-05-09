@@ -7,7 +7,21 @@ class Board
     @squares = create_board
   end
 
+  public
+  def find_square(x,y,color)
+     x = x.to_i - 1   
+     y = y.to_i - 1
+    return false if validate_square(x,y) == false
+    return false if @squares[x][y].validate_piece(color) == false
+  end
+
   private
+  def validate_square(x,y)
+    return false unless x.between?(0,7)
+    return false unless y.between?(0,7)
+    true
+  end
+
   def create_board
     board = []
 

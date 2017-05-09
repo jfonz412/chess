@@ -7,4 +7,12 @@ class Node
     @y = y
     @piece = piece
   end
+
+  public
+  def validate_piece(color)
+    return false if @piece == nil
+    return false unless @piece.color == color
+    true
+  end
+
 end
