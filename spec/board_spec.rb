@@ -37,7 +37,7 @@ describe Board do
       end
     end
 
-    conext "square exists and piece is valid" do
+    context "square exists and piece is valid" do
       it "returns true" do
         expect(subject.find_square(2,1,"white")).to be true
       end

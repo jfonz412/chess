@@ -10,8 +10,14 @@ class Node
 
   public
   def validate_piece(color)
-    return false if @piece == nil
-    return false unless @piece.color == color
+    if @piece == nil
+      "There is no piece on this space..."
+      return false 
+    end
+    if @piece.color != color
+      puts "This is not your piece..."
+      return false
+    end
     true
   end
 

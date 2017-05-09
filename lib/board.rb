@@ -13,12 +13,15 @@ class Board
      y = y.to_i - 1
     return false if validate_square(x,y) == false
     return false if @squares[x][y].validate_piece(color) == false
+    true
   end
 
   private
   def validate_square(x,y)
-    return false unless x.between?(0,7)
-    return false unless y.between?(0,7)
+    unless x.between?(0,7) && y.between?(0,7)
+      puts "Invalid entry, please try again.\n"
+      return false
+    end
     true
   end
 
