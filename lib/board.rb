@@ -5,6 +5,8 @@ class Board
 
   def initialize
     @squares = create_board
+    @starting_square = nil
+    @target_square = nil
   end
 
   public
@@ -13,6 +15,10 @@ class Board
      y = y.to_i - 1
     return false if validate_square(x,y) == false
     return false if @squares[x][y].validate_piece(color) == false
+
+    @starting_square = @squares[x][y]
+    return false if @starting_square.move_piece == false
+
     true
   end
 

@@ -1,4 +1,5 @@
 require 'node'
+require 'stringio'
 
 describe Node do
   context "when initialized" do
