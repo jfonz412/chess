@@ -28,7 +28,7 @@ class Board
 
     return false if validate_square(x,y) == false
     return false if check_friendly_fire(x,y) == false
-    return false if @starting_square.validate_move(x,y) == false
+    return false if @starting_square.validate_move(x,y,@squares) == false
 
     @target_square = squares[x][y]
 
