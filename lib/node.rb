@@ -11,7 +11,13 @@ class Node
   public
   def validate_move(x,y)
     move_attempt = [x,y]
-    return false unless @piece.moves.include? move_attempt
+
+    # does this also call the method? if so, no need to update moveset...
+    return false unless @piece.moves.include? move_attempt 
+
+    # if the above passes, we change piece's coordinates to the target node
+    @piece.x = x
+    @piece.y = y
   end
 
   def validate_piece(color)
