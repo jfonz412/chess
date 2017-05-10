@@ -17,4 +17,6 @@ module Movesets
     moves.delete_if {|x_y| true if x_y[0] > 7 || x_y[1] > 7}
   end
 
+  def castle_moveset(board)
+  end
 end

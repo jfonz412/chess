@@ -1,4 +1,4 @@
-require './lib/knight.rb'
+require './lib/pieces/knight.rb'
 
 class Board
   attr_reader :squares
