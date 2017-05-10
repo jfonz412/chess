@@ -10,7 +10,8 @@ class Node
 
   public
   def validate_move(x,y)
-
+    move_attempt = [x,y]
+    return false unless @piece.moves.include? move_attempt
   end
 
   def validate_piece(color)

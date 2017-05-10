@@ -58,17 +58,28 @@ describe Board do
       end
     end
 
-    context "square contains friendly piece" do
-      let(:friendly_fire) {Board.new}
-      before do
-        friendly_fire.instance_variable_set(:@starting_square, friendly_fire.squares[1][0])
-      end
-
-      it "returns false" do
-        expect(friendly_fire.move_piece(7,1)).to be false
-      end
+    let(:test_board) {Board.new}
+    before do
+      test_board.instance_variable_set(:@starting_square, test_board.squares[1][0])
     end
 
+    context "square contains friendly piece" do
+      it "returns false" do
+        expect(test_board.move_piece(7,1)).to be false
+      end
+    end
+    
+    context "square is valid, move is illegal" do
+      it "returns false" do
+        expect(test_board.move_piece(5,4)).to be false
+      end
+    end
+    
+    context "square is valid, move is legal" do
+      it "returns true" do
+        expect(test_board.move_piece(3,3)).to be true
+      end
+    end
   end
 end
 

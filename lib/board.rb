@@ -27,25 +27,30 @@ class Board
     y = y.to_i - 1
 
     return false if validate_square(x,y) == false
+    return false if check_friendly_fire(x,y) == false
+    return false if @starting_square.validate_move(x,y) == false
+
     @target_square = squares[x][y]
-    return false if check_friendly_fire == false
-    #return false if @starting_square.validate_move(x,y) == false
-    #move pieces around
+
+    @target_square.piece = @starting_square.piece
+    @starting_square.piece = nil
+
+    true
   end
 
   private
-  def check_friendly_fire
-    unless @target_square.piece.nil?
-      return false if @starting_square.piece.color == @target_square.piece.color
+  def check_friendly_fire(x,y)
+    unless squares[x][y].piece.nil?
+      return false if @starting_square.piece.color == squares[x][y].piece.color
     end
   end
+
 
   def validate_square(x,y)
     unless x.between?(0,7) && y.between?(0,7)
       puts "Invalid entry, please try again.\n"
       return false
     end
-    true
   end
 
   def create_board
