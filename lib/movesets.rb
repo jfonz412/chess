@@ -21,15 +21,15 @@ module Movesets
   	moves = []
 
   	moves = move_north(moves,board)
-  	#moves = move_south(moves,board)
-  	#moves = move_east(moves,board)
-  	#moves = move_west(moves,board)
+  	moves = move_south(moves,board)
+  	moves = move_east(moves,board)
+  	moves = move_west(moves,board)
 
   end	
 
 
-# Functions for pieces who can "slide" across the board
-  def move_north(moves,board)
+# Functions for castle/bishop/queen
+  def move_east(moves,board)
   	x = @x
   	y = @y
   	n = 0
@@ -46,6 +46,78 @@ module Movesets
 
       else
         moves << [x + n, y]
+        break
+      end
+  	end
+
+    moves
+  end
+
+  def move_west(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+
+  	loop do
+      n += 1
+      break if board[x - n].nil?
+
+      if board[x - n][y].piece == nil
+        moves << [x - n, y]
+
+      elsif board[x - n][y].piece.color == @color
+      	break
+
+      else
+        moves << [x - n, y]
+        break
+      end
+  	end
+
+    moves
+  end
+
+  def move_south(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+
+  	loop do
+      n += 1
+      break if board[x][y - n].nil?
+
+      if board[x][y - n].piece == nil
+        moves << [x, y - n]
+
+      elsif board[x][y - n].piece.color == @color
+      	break
+
+      else
+        moves << [x, y - n]
+        break
+      end
+  	end
+
+    moves
+  end
+
+  def move_north(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+
+  	loop do
+      n += 1
+      break if board[x][y + n].nil?
+
+      if board[x][y + n].piece == nil
+        moves << [x, y + n]
+
+      elsif board[x][y + n].piece.color == @color
+      	break
+
+      else
+        moves << [x, y + n]
         break
       end
   	end

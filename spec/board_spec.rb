@@ -86,6 +86,8 @@ describe Board do
     context "square is valid, move is legal" do
       it "returns true" do
         expect(test_knight.move_piece(3,3)).to be true
+        # will pass if pawn not in front of it
+        #expect(test_castle.move_piece(8,4)).to be true 
       end
     end
   end

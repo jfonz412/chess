@@ -11,6 +11,5 @@ class Piece
   	@color = color # colors will not
     @x = x
     @y = y
-    @moves = nil
   end
 end

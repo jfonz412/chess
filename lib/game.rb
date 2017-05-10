@@ -15,7 +15,7 @@ player_black = Player.new(name,"black")
 puts
 
 chess_board = Board.new
-#p chess_board.squares
+p chess_board.squares
 
 # Main game loop
 #loop do
@@ -42,5 +42,5 @@ chess_board = Board.new
   end
 #end
 
-#p chess_board.squares
+p chess_board.squares
 
