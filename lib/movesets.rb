@@ -27,8 +27,18 @@ module Movesets
 
   end	
 
+  def bishop_moveset(board)
+    moves = []
 
-# Functions for castle/bishop/queen
+    moves = diagonal_up_right(moves,board)
+    moves = diagonal_up_left(moves,board)
+    moves = diagonal_down_right(moves,board)
+    moves = diagonal_down_left(moves,board)
+    
+  end
+
+
+# Functions for castle/queen
   def move_east(moves,board)
   	x = @x
   	y = @y
@@ -125,4 +135,16 @@ module Movesets
     moves
   end
 
+  # Functions for bishop/queen
+  def diagonal_up_right(moves,board)
+  end
+
+  def diagonal_up_left(moves,board)
+  end
+
+  def diagonal_down_right(moves,board)
+  end
+
+  def diagonal_down_left(moves,board)
+  end
 end
