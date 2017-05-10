@@ -18,5 +18,39 @@ module Movesets
   end
 
   def castle_moveset(board)
+  	moves = []
+
+  	moves = move_north(moves,board)
+  	#moves = move_south(moves,board)
+  	#moves = move_east(moves,board)
+  	#moves = move_west(moves,board)
+
+  end	
+
+
+# Functions for pieces who can "slide" across the board
+  def move_north(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+
+  	loop do
+      n += 1
+      break if board[x + n].nil?
+
+      if board[x + n][y].piece == nil
+        moves << [x + n, y]
+
+      elsif board[x + n][y].piece.color == @color
+      	break
+
+      else
+        moves << [x + n, y]
+        break
+      end
+  	end
+
+    moves
   end
+
 end

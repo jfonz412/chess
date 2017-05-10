@@ -58,26 +58,34 @@ describe Board do
       end
     end
 
-    let(:test_board) {Board.new}
+    # At this point the piece's moves are considered
+    let(:test_knight) {Board.new}
     before do
-      test_board.instance_variable_set(:@starting_square, test_board.squares[1][0])
+      test_knight.instance_variable_set(:@starting_square, test_knight.squares[1][0])
+    end
+
+    let(:test_castle) {Board.new}
+    before do
+      test_castle.instance_variable_set(:@starting_square, test_castle.squares[7][7])
     end
 
     context "square contains friendly piece" do
       it "returns false" do
-        expect(test_board.move_piece(7,1)).to be false
+        expect(test_knight.move_piece(7,1)).to be false
+        expect(test_castle.move_piece(7,8)).to be false
       end
     end
     
     context "square is valid, move is illegal" do
       it "returns false" do
-        expect(test_board.move_piece(5,4)).to be false
+        expect(test_knight.move_piece(5,4)).to be false
+        expect(test_castle.move_piece(7,7)).to be false
       end
     end
     
     context "square is valid, move is legal" do
       it "returns true" do
-        expect(test_board.move_piece(3,3)).to be true
+        expect(test_knight.move_piece(3,3)).to be true
       end
     end
   end

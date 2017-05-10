@@ -1,4 +1,5 @@
 require './lib/pieces/knight.rb'
+require './lib/pieces/castle.rb'
 
 class Board
   attr_reader :squares
@@ -70,6 +71,11 @@ class Board
     board[6][0].piece = Knight.new("Knight","white",6,0)
     board[1][7].piece = Knight.new("Knight","black",1,7)
     board[6][7].piece = Knight.new("Knight","black",6,7)
+
+    board[0][0].piece = Castle.new("Castle","white",0,0)    
+    board[7][0].piece = Castle.new("Castle","white",7,0)
+    board[0][7].piece = Castle.new("Castle","black",0,7)
+    board[7][7].piece = Castle.new("Castle","black",7,7)
 
     return board
   end
