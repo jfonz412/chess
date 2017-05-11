@@ -15,9 +15,7 @@ describe Knight do
     end
 
     it "should have it's own moveset/symbol" do
-      expect(knight).to respond_to(:moves)
       expect(knight).to respond_to(:symbol)
-      expect(knight.check_moves[0]).to eql([0,2])
     end
 
   end
