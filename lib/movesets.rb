@@ -16,8 +16,16 @@ module Movesets
     moves.delete_if {|x_y| true if x_y[0] < 0 || x_y[1] < 0}
     moves.delete_if {|x_y| true if x_y[0] > 7 || x_y[1] > 7}
 
-    # When this is finally working, I will add code to 
-    # remove moves that contain a friendly piece
+    # Remove squares with friendly piece
+    moves.delete_if do |x_y|
+      x = x_y[0]
+      y = x_y[1]
+
+      unless board[x][y].piece.nil?
+        board[x][y].piece.color == @color
+      end
+    end
+    moves
   end
 
   def pawn_moveset
