@@ -1,6 +1,6 @@
 module Movesets
 
-  def knight_moveset
+  def knight_moveset(board)
     moves = [
 		      [@x - 1, @y + 2], 
 		      [@x + 1, @y + 2],
@@ -15,6 +15,9 @@ module Movesets
     # Remove illegal moves
     moves.delete_if {|x_y| true if x_y[0] < 0 || x_y[1] < 0}
     moves.delete_if {|x_y| true if x_y[0] > 7 || x_y[1] > 7}
+
+    # When this is finally working, I will add code to 
+    # remove moves that contain a friendly piece
   end
 
   def pawn_moveset

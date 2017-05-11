@@ -2,7 +2,7 @@ require './lib/piece.rb'
 
 class Knight < Piece
   def check_moves(board = nil)
-    knight_moveset
+    knight_moveset(board)
   end
   # re-write so method isn't called everytime
   def symbol

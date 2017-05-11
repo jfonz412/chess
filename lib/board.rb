@@ -46,6 +46,8 @@ class Board
   end
 
   private
+  # This is the function that I would like to remove from this object
+  # All other pieces except knight can take care of this on their own already...
   def check_friendly_fire(x,y)
     unless squares[x][y].piece.nil?
 
