@@ -30,7 +30,6 @@ class Board
     y = y.to_i - 1
 
     return false if validate_square(x,y) == false
-    return false if check_friendly_fire(x,y) == false
     
     if @starting_square.validate_move(x,y,@squares) == false
       puts "Invalid move...try again\n"
@@ -46,18 +45,6 @@ class Board
   end
 
   private
-  def check_friendly_fire(x,y)
-    unless squares[x][y].piece.nil?
-
-      if @starting_square.piece.color == squares[x][y].piece.color
-        puts "You your own #{squares[x][y].piece.color} #{squares[x][y].piece.name} is here.\n"
-        return false 
-      end
-
-    end
-  end
-
-
   def validate_square(x,y)
     unless x.between?(0,7) && y.between?(0,7)
       puts "Stay on the (8x8) board!\n"
