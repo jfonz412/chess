@@ -11,21 +11,8 @@ module Movesets
 		      [@x - 2, @y - 1],
 		      [@x - 2, @y + 1]
 		   ]
-
-    # Remove illegal moves
-    moves.delete_if {|x_y| true if x_y[0] < 0 || x_y[1] < 0}
-    moves.delete_if {|x_y| true if x_y[0] > 7 || x_y[1] > 7}
-
-    # Remove squares with friendly piece
-    moves.delete_if do |x_y|
-      x = x_y[0]
-      y = x_y[1]
-
-      unless board[x][y].piece.nil?
-        board[x][y].piece.color == @color
-      end
-    end
-    moves
+       
+    moves = remove_illegal_moves(moves,board)
   end
 
   def pawn_moveset
@@ -261,6 +248,25 @@ module Movesets
   	  	moves << [x - n, y - n]
   	  end
   	end
+
+    moves
+  end
+
+  def remove_illegal_moves(moves,board)
+
+    # Remove illegal moves
+    moves.delete_if {|x_y| true if x_y[0] < 0 || x_y[1] < 0}
+    moves.delete_if {|x_y| true if x_y[0] > 7 || x_y[1] > 7}
+
+    # Remove squares with friendly piece
+    moves.delete_if do |x_y|
+      x = x_y[0]
+      y = x_y[1]
+
+      unless board[x][y].piece.nil?
+        board[x][y].piece.color == @color
+      end
+    end
 
     moves
   end

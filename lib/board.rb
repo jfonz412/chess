@@ -40,6 +40,7 @@ class Board
 
     @target_square.piece = @starting_square.piece
     @starting_square.piece = nil
+    @target_square.piece.first_move = false # for pawns
 
     true
   end

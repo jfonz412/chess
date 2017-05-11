@@ -2,7 +2,7 @@ require './lib/movesets.rb'
 
 class Piece
   attr_reader :name, :color, :symbol, :moves
-  attr_accessor :x,:y
+  attr_accessor :x, :y, :first_move 
 
   include Movesets
 
@@ -11,5 +11,7 @@ class Piece
   	@color = color # colors will not
     @x = x
     @y = y
+
+    @first_move = true #for pawns
   end
 end
