@@ -30,7 +30,11 @@ class Board
 
     return false if validate_square(x,y) == false
     return false if check_friendly_fire(x,y) == false
-    return false if @starting_square.validate_move(x,y,@squares) == false
+    
+    if @starting_square.validate_move(x,y,@squares) == false
+      puts "Invalid move...try again\n"
+      return false 
+    end
 
     @target_square = squares[x][y]
 
@@ -48,7 +52,7 @@ class Board
         puts "You your own #{squares[x][y].piece.color} #{squares[x][y].piece.name} is here.\n"
         return false 
       end
-      
+
     end
   end
 
