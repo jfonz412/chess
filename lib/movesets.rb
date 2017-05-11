@@ -34,7 +34,7 @@ module Movesets
     moves = diagonal_up_left(moves,board)
     moves = diagonal_down_right(moves,board)
     moves = diagonal_down_left(moves,board)
-    
+
   end
 
 
@@ -137,14 +137,103 @@ module Movesets
 
   # Functions for bishop/queen
   def diagonal_up_right(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+    
+    loop do
+      n += 1
+  	  break if board[x + n].nil?
+  	  break if board[x + n][y + n].nil?
+  	  square = board[x + n][y + n]
+
+  	  if square.piece == nil
+  	  	moves << [x + n, y + n]
+
+  	  elsif square.piece.color == @color
+  	  	break
+
+  	  else
+  	  	moves << [x + n, y + n]
+  	  end
+  	end
+
+    moves
   end
 
   def diagonal_up_left(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+    
+    loop do
+      n += 1
+  	  break if board[x - n].nil?
+  	  break if board[x - n][y + n].nil?
+  	  square = board[x - n][y + n]
+
+  	  if square.piece == nil
+  	  	moves << [x - n, y + n]
+
+  	  elsif square.piece.color == @color
+  	  	break
+
+  	  else
+  	  	moves << [x - n, y + n]
+  	  end
+  	end
+
+    moves
   end
 
   def diagonal_down_right(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+    
+    loop do
+      n += 1
+  	  break if board[x + n].nil?
+  	  break if board[x + n][y - n].nil?
+  	  square = board[x + n][y - n]
+
+  	  if square.piece == nil
+  	  	moves << [x + n, y - n]
+
+  	  elsif square.piece.color == @color
+  	  	break
+
+  	  else
+  	  	moves << [x + n, y - n]
+  	  end
+  	end
+
+    moves
   end
 
   def diagonal_down_left(moves,board)
+  	x = @x
+  	y = @y
+  	n = 0
+    
+    loop do
+      n += 1
+  	  break if board[x - n].nil?
+  	  break if board[x - n][y - n].nil?
+  	  square = board[x - n][y - n]
+
+  	  if square.piece == nil
+  	  	moves << [x - n, y - n]
+
+  	  elsif square.piece.color == @color
+  	  	break
+
+  	  else
+  	  	moves << [x - n, y - n]
+  	  end
+  	end
+
+    moves
   end
+
 end

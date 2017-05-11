@@ -43,14 +43,19 @@ class Board
   private
   def check_friendly_fire(x,y)
     unless squares[x][y].piece.nil?
-      return false if @starting_square.piece.color == squares[x][y].piece.color
+
+      if @starting_square.piece.color == squares[x][y].piece.color
+        puts "You your own #{squares[x][y].piece.color} #{squares[x][y].piece.name} is here.\n"
+        return false 
+      end
+      
     end
   end
 
 
   def validate_square(x,y)
     unless x.between?(0,7) && y.between?(0,7)
-      puts "Invalid entry, please try again.\n"
+      puts "Stay on the (8x8) board!\n"
       return false
     end
   end

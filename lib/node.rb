@@ -12,7 +12,6 @@ class Node
   def validate_move(x,y,board)
     move_attempt = [x,y]
 
-    # does this also call the method? if so, no need to update moveset...
     return false unless @piece.check_moves(board).include? move_attempt 
 
     # if the above passes, we change piece's coordinates to the target node
@@ -23,12 +22,13 @@ class Node
   def validate_piece(color)
     if @piece == nil
       puts "There is no piece on this space...\n"
-      return false 
-    end
-    if @piece.color != color
+      return false
+
+    elsif @piece.color != color
       puts "This is not your piece...\n"
       return false
     end
+    
     true
   end
 
