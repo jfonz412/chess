@@ -17,6 +17,10 @@ module Movesets
     moves.delete_if {|x_y| true if x_y[0] > 7 || x_y[1] > 7}
   end
 
+  def pawn_moveset
+  	
+  end
+
   def castle_moveset(board)
   	moves = []
 
@@ -37,6 +41,20 @@ module Movesets
 
   end
 
+  def queen_moveset(board)
+  	moves = []
+    
+    moves = diagonal_up_right(moves,board)
+    moves = diagonal_up_left(moves,board)
+    moves = diagonal_down_right(moves,board)
+    moves = diagonal_down_left(moves,board)
+
+  	moves = move_north(moves,board)
+  	moves = move_south(moves,board)
+  	moves = move_east(moves,board)
+  	moves = move_west(moves,board)
+
+  end
 
 # Functions for castle/queen
   def move_east(moves,board)

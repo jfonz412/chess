@@ -6,6 +6,6 @@ class Castle < Piece
   end
   # re-write so method isn't called everytime
   def symbol
-    @color == "white" ? @symbol = "\u{265C}" : @symbol = "\u{265C}"
+    @color == "white" ? @symbol = "\u{2656}" : @symbol = "\u{265C}"
   end
 end

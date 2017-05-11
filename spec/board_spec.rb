@@ -74,6 +74,11 @@ describe Board do
       test_bishop.instance_variable_set(:@starting_square, test_bishop.squares[2][7])
     end
 
+    let(:test_queen) {Board.new}
+    before do
+      test_queen.instance_variable_set(:@starting_square, test_queen.squares[4][0])
+    end
+
     context "square contains friendly piece" do
       it "returns false" do
         expect(test_knight.move_piece(7,1)).to be false
@@ -86,6 +91,7 @@ describe Board do
         expect(test_knight.move_piece(5,4)).to be false
         expect(test_castle.move_piece(7,7)).to be false
         expect(test_bishop.move_piece(3,4)).to be false
+        expect(test_queen.move_piece(8,3)).to be false
       end
     end
     
@@ -95,8 +101,9 @@ describe Board do
         expect(test_knight.move_piece(3,3)).to be true
 
         # will pass if pawn not in front of it
+        expect(test_queen.move_piece(2,4)).to be false
         expect(test_bishop.move_piece(8,3)).to be true
-        expect(test_castle.move_piece(8,4)).to be true 
+        expect(test_castle.move_piece(8,5)).to be true 
       end
     end
   end
