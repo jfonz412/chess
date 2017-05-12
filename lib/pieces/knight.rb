@@ -6,6 +6,6 @@ class Knight < Piece
   end
   # re-write so method isn't called everytime
   def symbol
-    @color == "white" ? @symbol = "\u{2658}" : @symbol = "\u{265e}"
+    @color == "white" ? @symbol = "\u{2658}" : @symbol = "\u{265e}".colorize(:black)
   end
 end

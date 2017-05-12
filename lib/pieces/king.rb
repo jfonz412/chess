@@ -6,6 +6,6 @@ class King < Piece
   end
   # re-write so method isn't called everytime
   def symbol
-    @color == "white" ? @symbol = "\u{2654}" : @symbol = "\u{265A}"
+    @color == "white" ? @symbol = "\u{2654}" : @symbol = "\u{265A}".colorize(:black)
   end
 end

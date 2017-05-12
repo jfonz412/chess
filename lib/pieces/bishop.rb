@@ -6,6 +6,6 @@ class Bishop < Piece
   end
   # re-write so method isn't called everytime
   def symbol
-    @color == "white" ? @symbol = "\u{2657}" : @symbol = "\u{265D}"
+    @color == "white" ? @symbol = "\u{2657}" : @symbol = "\u{265D}".colorize(:black)
   end
 end

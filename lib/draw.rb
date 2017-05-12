@@ -10,7 +10,8 @@ class Draw
     black = true
 
     7.downto(0) do |x|
-      print "#{x + 1} |"
+      print "#{x + 1} ".colorize(:yellow)
+      print '|'
       black = !black
   	  for y in 0..7
 
@@ -27,7 +28,7 @@ class Draw
       puts
     end
     puts
-    print "   A  B  C  D  E  F  G  H"
+    print "   A  B  C  D  E  F  G  H".colorize(:yellow)
   end
 
 end
