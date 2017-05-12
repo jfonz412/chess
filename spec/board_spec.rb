@@ -74,9 +74,9 @@ describe Board do
       test_queen.instance_variable_set(:@starting_square, test_queen.squares[4][0])
     end
 
-    let(:test_knight) {Board.new}
+    let(:test_pawn) {Board.new}
     before do
-      test_knight.instance_variable_set(:@starting_square, test_knight.squares[1][0])
+      test_pawn.instance_variable_set(:@starting_square, test_pawn.squares[0][1])
     end
 
     context "square contains friendly piece" do
@@ -92,18 +92,20 @@ describe Board do
         expect(test_castle.move_piece(7,7)).to be false
         expect(test_bishop.move_piece(3,4)).to be false
         expect(test_queen.move_piece(8,3)).to be false
-        #expect(test_knight.move_piece(2,5)).to be false # unidentified bug, works in-game...
+        expect(test_pawn.move_piece(2,2)).to be false
       end
     end
     
     # can only move each piece once w/o resetting starting square
     context "square is valid, move is legal" do
       it "returns true" do
-
+      	expect(test_pawn.move_piece(1,4)).to be true #first move
+      	
+        #expect(test_pawn.move_piece(1,5)).to be true
         # will pass if pawn not in front of it
-        expect(test_queen.move_piece(2,4)).to be false
-        expect(test_bishop.move_piece(8,3)).to be true
-        expect(test_castle.move_piece(8,5)).to be true 
+        #expect(test_queen.move_piece(2,4)).to be true
+        #expect(test_bishop.move_piece(8,3)).to be true
+        #expect(test_castle.move_piece(8,5)).to be true 
       end
     end
   end

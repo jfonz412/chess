@@ -2,6 +2,7 @@ require './lib/pieces/knight.rb'
 require './lib/pieces/castle.rb'
 require './lib/pieces/bishop.rb'
 require './lib/pieces/queen.rb'
+require './lib/pieces/pawn.rb'
 
 class Board
   attr_reader :squares
@@ -83,6 +84,14 @@ class Board
 
     board[4][0].piece = Queen.new("Queen","white",4,1)
     board[4][7].piece = Queen.new("Queen","white",4,1)
+
+    for n in 0..7
+      board[n][1].piece = Pawn.new("Pawn","white",n,1)
+    end
+
+    for n in 0..7
+      board[n][6].piece = Pawn.new("Pawn","black",n,6)
+    end
 
     return board
   end

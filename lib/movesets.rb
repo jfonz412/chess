@@ -11,12 +11,44 @@ module Movesets
 		      [@x - 2, @y - 1],
 		      [@x - 2, @y + 1]
 		   ]
-       
+
     moves = remove_illegal_moves(moves,board)
   end
 
-  def pawn_moveset
-  	
+  def pawn_moveset(board)
+    moves = []
+    @color == "white" ? n = 1 : n = -1
+    x = @x
+    y = @y
+    
+    # moving forward 1 square
+    unless board[x][y+n].nil?
+      if board[x][y+n].piece.nil?
+        moves << [x, y+n]
+      end
+    end
+    
+    # first move
+    moves << [x, y + n*2] if @first_move == true
+
+    # diagonal movement
+    unless board[x + n].nil?
+      unless board[x + n][y + n].nil?
+        unless board[x + n][y + n].piece.nil?
+          moves << [x + n, y + n] if board[x + n][y + n].piece.color != @color
+        end
+      end
+    end
+
+    unless board[x - n].nil?
+      unless board[x - n][y + n].nil?
+        unless board[x - n][y + n].piece.nil?
+          moves << [x - n, y + n] if board[x - n][y + n].piece.color != @color
+        end
+      end
+    end
+
+  	moves
   end
 
   def castle_moveset(board)
