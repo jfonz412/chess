@@ -8,13 +8,13 @@ class Draw
   public
   def draw_board
 
-    for y in 0..7
-  	  for x in 0..7
+    7.downto(0) do |x|
+  	  for y in 0..7
 
-  	    if board[x][y].piece == nil
-  	      print "  "
+  	    if board[y][x].piece == nil
+  	      print " "
   	    else
-  	      print " #{board[x][y].piece.symbol} "
+  	      print "#{board[y][x].piece.symbol} "
   	    end
 
       end
