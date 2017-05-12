@@ -2,6 +2,7 @@ require './lib/pieces/knight.rb'
 require './lib/pieces/castle.rb'
 require './lib/pieces/bishop.rb'
 require './lib/pieces/queen.rb'
+require './lib/pieces/king.rb'
 require './lib/pieces/pawn.rb'
 
 class Board
@@ -83,7 +84,10 @@ class Board
     board[5][7].piece = Bishop.new("Bishop","black",5,7)
 
     board[4][0].piece = Queen.new("Queen","white",4,1)
-    board[4][7].piece = Queen.new("Queen","white",4,1)
+    board[4][7].piece = Queen.new("Queen","black",4,7)
+
+    board[3][0].piece = King.new("King","white",3,0)
+    board[3][7].piece = King.new("King","black",3,7)
 
     for n in 0..7
       board[n][1].piece = Pawn.new("Pawn","white",n,1)
