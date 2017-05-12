@@ -26,7 +26,8 @@ class Draw
       end
       puts
     end
-    print "   a  b  c  d  e  f  g  h"
+    puts
+    print "   A  B  C  D  E  F  G  H"
   end
 
 end

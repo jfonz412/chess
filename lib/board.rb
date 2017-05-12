@@ -17,7 +17,7 @@ class Board
 
   public
   def find_square(x,y,color)
-    x = x.to_i - 1   
+    x = translate_x(x)  
     y = y.to_i - 1
 
     return false if validate_square(x,y) == false
@@ -29,7 +29,7 @@ class Board
   end
 
   def move_piece(x,y)
-    x = x.to_i - 1   
+    x = translate_x(x)  
     y = y.to_i - 1
 
     return false if validate_square(x,y) == false
@@ -49,6 +49,17 @@ class Board
   end
 
   private
+  def translate_x(x)
+    return 0 if x == 'a' || x == 'A'
+    return 1 if x == 'b' || x == 'B'
+    return 2 if x == 'c' || x == 'C'
+    return 3 if x == 'd' || x == 'D'
+    return 4 if x == 'e' || x == 'E'
+    return 5 if x == 'f' || x == 'F'
+    return 6 if x == 'g' || x == 'G'
+    return 7 if x == 'h' || x == 'H'
+    return -1
+  end
   def validate_square(x,y)
     unless x.between?(0,7) && y.between?(0,7)
       puts "Stay on the (8x8) board!\n"

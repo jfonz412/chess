@@ -39,7 +39,7 @@ describe Board do
 
     context "square exists and piece is valid" do
       it "returns true" do
-        expect(subject.find_square(2,1,"white")).to be true
+        expect(subject.find_square('b',1,"white")).to be true
       end
     end
   end
@@ -81,25 +81,25 @@ describe Board do
 
     context "square contains friendly piece" do
       it "returns false" do
-        expect(test_castle.move_piece(7,8)).to be false
+        expect(test_castle.move_piece('g',8)).to be false
         #expect(test_bishop.move_piece(2,7)).to be false # needs pawn in front
-        expect(test_queen.move_piece(6,8)).to be false
+        expect(test_queen.move_piece('f',8)).to be false
       end
     end
     
     context "square is valid, move is illegal" do
       it "returns false" do
-        expect(test_castle.move_piece(7,7)).to be false
-        expect(test_bishop.move_piece(3,4)).to be false
-        expect(test_queen.move_piece(8,3)).to be false
-        expect(test_pawn.move_piece(2,2)).to be false
+        expect(test_castle.move_piece('g',7)).to be false
+        expect(test_bishop.move_piece('c',4)).to be false
+        expect(test_queen.move_piece('h',3)).to be false
+        expect(test_pawn.move_piece('b',2)).to be false
       end
     end
     
     # can only move each piece once w/o resetting starting square
     context "square is valid, move is legal" do
       it "returns true" do
-      	expect(test_pawn.move_piece(1,4)).to be true #first move
+      	expect(test_pawn.move_piece('a',4)).to be true #first move
       	
         #expect(test_pawn.move_piece(1,5)).to be true
         # will pass if pawn not in front of it
