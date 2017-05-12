@@ -5,6 +5,7 @@ require './lib/pieces/queen.rb'
 require './lib/pieces/king.rb'
 require './lib/pieces/pawn.rb'
 
+
 class Board
   attr_reader :squares
 

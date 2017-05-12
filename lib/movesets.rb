@@ -15,6 +15,74 @@ module Movesets
     moves = remove_illegal_moves(moves,board)
   end
 
+  def king_moveset(board)
+    moves = []
+    @color == "white" ? n = 1 : n = -1
+    x = @x
+    y = @y
+    
+    # moving forward 1 square
+    unless board[x][y+n].nil?
+      if board[x][y+n].piece.nil?
+        moves << [x, y+n]
+      elsif board[x][y+n].piece.color != @color
+        moves << [x, y+n]
+      end
+    end
+
+    # moving backwards one square
+    unless board[x][y-n].nil?
+      if board[x][y-n].piece.nil?
+        moves << [x, y-n]
+      elsif board[x][y-n].piece.color != @color
+        moves << [x, y-n]
+      end
+    end
+
+    # diagonal movement
+    unless board[x + n].nil?
+      unless board[x + n][y + n].nil?
+        if board[x + n][y + n].piece.nil?
+          moves << [x + n, y + n] 
+        elsif board[x + n][y + n].piece.color != @color
+          moves << [x + n, y + n]
+        end
+      end
+    end
+
+    unless board[x - n].nil?
+      unless board[x - n][y + n].nil?
+        if board[x - n][y + n].piece.nil?
+          moves << [x - n, y + n] 
+        elsif board[x - n][y + n].piece.color != @color
+          moves << [x - n, y + n]
+        end
+      end
+    end
+
+    unless board[x - n].nil?
+      unless board[x - n][y - n].nil?
+        if board[x - n][y - n].piece.nil?
+          moves << [x - n, y - n] 
+        elsif board[x - n][y - n].piece.color != @color
+          moves << [x - n, y - n]
+        end
+      end
+    end
+
+    unless board[x + n].nil?
+      unless board[x + n][y - n].nil?
+        if board[x + n][y - n].piece.nil?
+          moves << [x + n, y - n] 
+        elsif board[x + n][y - n].piece.color != @color
+          moves << [x + n, y - n]
+        end
+      end
+    end
+
+  moves
+  end
+
   def pawn_moveset(board)
     moves = []
     @color == "white" ? n = 1 : n = -1

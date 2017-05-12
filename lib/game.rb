@@ -2,6 +2,7 @@ require './lib/player.rb'
 require './lib/node.rb'
 require './lib/piece.rb'
 require './lib/board.rb'
+require './lib/draw.rb'
 
 
 # GAME INTRODUCTION
@@ -15,10 +16,12 @@ player_black = Player.new(name,"black")
 puts
 
 chess_board = Board.new
-p chess_board.squares
+draw = Draw.new(chess_board.squares)
+
+draw.draw_board
 
 # Main game loop
-2.times do
+1.times do
   loop do
 
   	puts "#{player_white.name} (#{player_white.color}), it is your move!\n"
@@ -64,5 +67,5 @@ p chess_board.squares
   end
 end
 
-p chess_board.squares
+draw.draw_board
 
