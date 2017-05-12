@@ -24,7 +24,7 @@ draw.draw_board
 1.times do
   loop do
 
-  	puts "#{player_white.name} (#{player_white.color}), it is your move!\n"
+  	puts "\n#{player_white.name} (#{player_white.color}), it is your move!\n"
   	puts "Enter to X coordinate of the piece you want to move\n"
     target_x = gets.chomp.to_i
     puts "Now enter the Y coordinate of the piece you want to move\n"
@@ -46,7 +46,7 @@ draw.draw_board
 
   loop do
 
-  	puts "#{player_black.name} (#{player_black.color}), it is your move!\n"
+  	puts "\n#{player_black.name} (#{player_black.color}), it is your move!\n"
   	puts "Enter to X coordinate of the piece you want to move\n"
     target_x = gets.chomp.to_i
     puts "Now enter the Y coordinate of the piece you want to move\n"
